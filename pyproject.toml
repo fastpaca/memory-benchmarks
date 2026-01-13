@@ -1,0 +1,16 @@
+[project]
+name = "memory-benchmarks"
+version = "0.1.0"
+description = "Membench benchmark comparing RICE vs long-context baseline"
+requires-python = ">=3.12"
+dependencies = [
+    "openai>=1.0.0",
+    "pydantic>=2.0.0",
+    "grpcio>=1.76.0",
+    "protobuf>=6.33.2",
+    "ricedb",
+    "python-dotenv>=1.2.1",
+]
+
+[tool.uv.sources]
+ricedb = { git = "https://github.com/rice-ai-hq/ricedb-python" }
