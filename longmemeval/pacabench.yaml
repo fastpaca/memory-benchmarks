@@ -1,0 +1,30 @@
+name: longmemeval-long-context
+description: LongMemEval benchmark using a long-context baseline with an LLM judge
+version: "0.1.0"
+
+config:
+  concurrency: 2
+  timeout_seconds: 600
+  proxy:
+    enabled: true
+    provider: "openai"
+
+agents:
+  - name: "long-context-baseline"
+    command: "uv run python agents/long_context_agent.py"
+    env:
+      OPENAI_API_KEY: "${OPENAI_API_KEY}"
+
+datasets:
+  - name: "longmemeval-oracle"
+    source: "huggingface:xiaowu0162/longmemeval-cleaned"
+    split: "longmemeval_oracle"
+    input_map:
+      input: "question"
+      expected: "answer"
+    evaluator:
+      type: "llm_judge"
+      model: "gpt-4o-mini"
+
+output:
+  directory: "./runs"
