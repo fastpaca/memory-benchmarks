@@ -12,5 +12,8 @@ dependencies = [
     "python-dotenv>=1.2.1",
 ]
 
+[dependency-groups]
+dev = ["pacabench>=0.0.2"]
+
 [tool.uv.sources]
 ricedb = { git = "https://github.com/rice-ai-hq/ricedb-python" }
