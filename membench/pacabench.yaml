@@ -19,7 +19,7 @@ agents:
     command: "uv run python agents/rice_agent.py"
     env:
       OPENAI_API_KEY: "${OPENAI_API_KEY}"
-      RICE_PASSWORD: "${RICE_PASSWORD}"
+      DOTENV_PATH: ".env"
 
 datasets:
   - name: "membench"
